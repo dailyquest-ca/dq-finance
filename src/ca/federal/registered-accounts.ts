@@ -13,7 +13,8 @@
 
 import type { SourcedValue } from "../../types.ts";
 
-const CRA_LIMITS_PAGE = "https://www.canada.ca/en/revenue-agency/services/tax/rates.html";
+const CRA_LIMITS_PAGE =
+  "https://www.canada.ca/en/revenue-agency/services/tax/registered-plans-administrators/pspa/mp-rrsp-dpsp-tfsa-limits-ympe.html";
 const SEEDED = "Candidate drafted from project docs and secondary reporting; not yet read off the primary source.";
 
 /** RRSP annual dollar limit (the cap; the other half of the test is 18% of prior-year earned income). */
@@ -30,7 +31,9 @@ export const RRSP_DOLLAR_LIMIT_2026: SourcedValue = {
     url: CRA_LIMITS_PAGE,
     retrieved: "2026-08-11",
   },
-  note: `${SEEDED} Candidate $33,810.`,
+  note:
+    "Primary source read 2026-08-11: the CRA limits table shows $33,810 for 2026 and $32,490 for 2025. " +
+    "The candidate matches. Awaiting human sign-off.",
 };
 
 /** The income-based half of RRSP room: this fraction of prior-year earned income. */
@@ -64,7 +67,9 @@ export const TFSA_ANNUAL_LIMIT_2026: SourcedValue = {
     url: CRA_LIMITS_PAGE,
     retrieved: "2026-08-11",
   },
-  note: `${SEEDED} Candidate $7,000. Indexed to inflation in $500 increments, so it does not move every year. Withdrawn amounts return to room on 1 January of the FOLLOWING year, not immediately.`,
+  note:
+    "Primary source read 2026-08-11: the CRA limits table shows $7,000 for both 2026 and 2025. " +
+    "The candidate matches. Awaiting human sign-off. Indexed to inflation in $500 increments, so it does not move every year. Withdrawn amounts return to room on 1 January of the FOLLOWING year, not immediately.",
 };
 
 /** FHSA annual contribution limit. */

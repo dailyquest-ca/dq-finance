@@ -47,6 +47,8 @@ export const ALL_ENTRIES: Readonly<Record<string, Sourced>> = Object.freeze({
   "ca.federal.fhsaLifetimeLimit": registered.FHSA_LIFETIME_LIMIT,
   "ca.federal.hbpWithdrawalLimit": registered.HBP_WITHDRAWAL_LIMIT,
   "ca.bc.pttSchedule": ptt.BC_PTT_SCHEDULE,
+  "ca.bc.pttResidentialSurchargeAbove3m": ptt.BC_PTT_RESIDENTIAL_SURCHARGE_ABOVE_3M,
+  "ca.bc.pttResidentialSurchargeThreshold": ptt.BC_PTT_RESIDENTIAL_SURCHARGE_THRESHOLD,
   "ca.bc.pttFtbFullExemptionCeiling": ptt.BC_PTT_FTB_FULL_EXEMPTION_CEILING,
   "ca.bc.pttFtbPhaseOutCeiling": ptt.BC_PTT_FTB_PHASE_OUT_CEILING,
   "ca.bc.pttNewBuildFullExemptionCeiling": ptt.BC_PTT_NEW_BUILD_FULL_EXEMPTION_CEILING,
