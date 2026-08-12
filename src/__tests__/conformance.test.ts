@@ -74,6 +74,20 @@ describe("conformance (shared with the Python reader)", () => {
     // CRA contribution-room page 404'd on 2026-08-11, so the 18% rate was never
     // read off a primary source. Must not be swept into a bulk verify.
     "ca.federal.rrspEarnedIncomeRate",
+    // Strategy thresholds measured from the 2016-2026 winner census (230,007 liquid US
+    // name-months, split-adjusted, delisted retained). Deliberately unverified, for three
+    // reasons that a human has to weigh before any of them can size a real position:
+    //   * one decade, containing no full bear cycle, so every figure is regime-flattered
+    //   * the census tested a SPRINT label (+70% in six months) only; whether these hold
+    //     for a marathon label is an open question, not an assumption
+    //   * research measurements are not authorities. A CRA table can be read and confirmed;
+    //     an edge cannot, it can only be re-measured out of sample
+    "strategy.momentum.sprintDepthFloor",
+    "strategy.momentum.sprintOffHighFloor",
+    "strategy.momentum.sprintTurnThreshold",
+    "strategy.momentum.sprintRangeFloor",
+    "strategy.momentum.marathonFormationMonths",
+    "strategy.risk.heatCap",
   ];
 
   test("exactly the expected entries are unverified", () => {
