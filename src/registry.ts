@@ -39,6 +39,13 @@ export class ConstantOutOfEffectError extends Error {
   }
 }
 
+export class UnknownConstantError extends Error {
+  constructor(name: string) {
+    super(`"${name}" is not in the registry. Add it to data/constants.json with a primary source.`);
+    this.name = "UnknownConstantError";
+  }
+}
+
 export class MalformedConstantError extends Error {
   constructor(name: string, problem: string) {
     super(`"${name}" is malformed: ${problem}. This is a defect in dq-finance, not in the caller.`);
@@ -121,7 +128,7 @@ export function validate(name: string, entry: Sourced): void {
   }
 }
 
-function inEffect(entry: Sourced, asOf: string): boolean {
+export function inEffect(entry: Sourced, asOf: string): boolean {
   if (asOf < entry.effectiveFrom) return false;
   if (entry.effectiveTo !== null && asOf > entry.effectiveTo) return false;
   return true;
@@ -135,16 +142,20 @@ function inEffect(entry: Sourced, asOf: string): boolean {
  *   historical calculation is how last year's rate silently reaches this year's
  *   filing, so the caller must be explicit.
  */
-export function resolve(name: string, entry: SourcedValue, asOf: string): number;
-export function resolve(name: string, entry: SourcedSchedule, asOf: string): readonly Tier[];
-export function resolve(name: string, entry: Sourced, asOf: string): number | readonly Tier[] {
+export function resolveFromRegistry(
+  registry: Readonly<Record<string, Sourced>>,
+  name: string,
+  asOf: string,
+): number | readonly Tier[] {
   if (!ISO_DATE.test(asOf)) {
     throw new MalformedConstantError(name, `asOf must be a YYYY-MM-DD date, got "${asOf}"`);
   }
+  const entry = registry[name];
+  if (!entry) throw new UnknownConstantError(name);
   validate(name, entry);
   if (entry.status !== "verified") throw new UnverifiedConstantError(name, entry);
   if (!inEffect(entry, asOf)) throw new ConstantOutOfEffectError(name, entry, asOf);
-  return isSchedule(entry) ? entry.tiers : (entry as SourcedValue).value;
+  return isSchedule(entry) ? (entry as SourcedSchedule).tiers : (entry as SourcedValue).value;
 }
 
 /** Non-throwing check, for building a verification queue or a status page. */

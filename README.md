@@ -1,6 +1,6 @@
 # dq-finance
 
-Canadian finance constants with **enforced** provenance.
+Canadian finance constants with **enforced** provenance, readable from **TypeScript and Python**.
 
 Every value carries the authority that set it, a citation, a primary-source URL, an effective window, and whether a human has actually checked it. Nothing can be read until someone has.
 
@@ -38,9 +38,29 @@ The no-assumed-values doctrine used to be a paragraph someone had to remember. H
 That is deliberate. The values present are *candidates* drafted from existing Daily Quest project documentation and from secondary reporting — none has been read off a government page by a human. Publishing them as facts would be the exact failure this library exists to prevent.
 
 ```bash
-npm run queue     # what needs a human, grouped by source
-npm test          # 27 tests: structure, the gate, and mortgage arithmetic
+npm run queue      # what needs a human, grouped by source
+npm test           # both languages
+npm run test:ts    # 35 tests
+npm run test:py    # 44 tests
 ```
+
+## One source of truth, two readers
+
+`data/constants.json` holds every entry. The TypeScript reader in `src/` and the Python package in `python/dq_finance/` both load it — neither owns the data, so they cannot drift.
+
+Math belongs in Python, presentation in TypeScript, and both need the same numbers.
+
+```python
+from dq_finance import resolve
+limit = resolve("ca.federal.tfsaAnnualLimit2026", transaction_date)
+```
+
+```ts
+import { resolve } from "@dailyquest/finance";
+const limit = resolve("ca.federal.tfsaAnnualLimit2026", transactionDate);
+```
+
+`data/conformance.json` is a shared suite of 16 cases executed by **both** test suites. A change to one language's gate that is not mirrored in the other fails in both, immediately. That is the guarantee — not a convention, a test.
 
 Verification is confirm-or-correct against the URL, not research — the candidate is right there. Roughly a sitting per authority.
 

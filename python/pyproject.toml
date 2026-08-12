@@ -1,0 +1,25 @@
+[project]
+name = "dq-finance"
+version = "0.2.0"
+description = "Canadian finance constants with enforced provenance — every value carries its authority, citation, source URL, effective window, and verification status."
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["dq_finance"]
+
+# data/constants.json and data/conformance.json live at the repo root, one level
+# above this package, so both language readers load the same files. When
+# packaging for distribution, ship them alongside — a copy that drifts is worse
+# than no copy.
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

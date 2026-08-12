@@ -5,17 +5,28 @@
  * a citation, a primary-source URL, an effective window, and whether a human has
  * actually checked it. `resolve()` refuses anything unverified or out of window.
  *
+ * **`data/constants.json` is the source of truth.** This module and the Python
+ * package in `python/dq_finance/` are two readers of the same file, so the two
+ * languages cannot drift. `data/conformance.json` proves they agree.
+ *
  * Read the README before adding an entry.
  */
 
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
+import { resolveFromRegistry } from "./registry.ts";
+import type { Sourced, Tier } from "./types.ts";
+
 export * from "./types.ts";
 export {
-  resolve,
   isUsable,
+  inEffect,
   validate,
   UnverifiedConstantError,
   ConstantOutOfEffectError,
   MalformedConstantError,
+  UnknownConstantError,
 } from "./registry.ts";
 
 export {
@@ -25,41 +36,31 @@ export {
   amortizationSplitCents,
 } from "./ca/mortgage/compounding.ts";
 
-import * as registered from "./ca/federal/registered-accounts.ts";
-import * as ptt from "./ca/bc/property-transfer-tax.ts";
-import * as cmhc from "./ca/mortgage/cmhc.ts";
-import type { Sourced } from "./types.ts";
+const here = dirname(fileURLToPath(import.meta.url));
+const DATA_PATH = join(here, "..", "data", "constants.json");
 
-export { registered, ptt, cmhc };
+/** Every sourced entry, keyed by a stable dotted name. Loaded from the shared JSON. */
+export const ALL_ENTRIES: Readonly<Record<string, Sourced>> = Object.freeze(
+  JSON.parse(readFileSync(DATA_PATH, "utf8")) as Record<string, Sourced>,
+);
 
 /**
- * Every sourced entry in the library, keyed by a stable dotted name.
+ * Read a constant by name. Throws unless it is well-formed, verified, and in
+ * effect on `asOf`.
  *
- * This exists so the test suite can sweep the whole library rather than
- * relying on someone remembering to add a test per constant. A new module is
- * only truly registered once it appears here — see the coverage test.
+ * @param asOf ISO date the calculation applies to — a transaction date or a
+ *   tax-year date, never "today" by default. Passing today's date to a
+ *   historical calculation is how last year's rate silently reaches this year's
+ *   filing, so the caller must be explicit.
  */
-export const ALL_ENTRIES: Readonly<Record<string, Sourced>> = Object.freeze({
-  "ca.federal.rrspDollarLimit2026": registered.RRSP_DOLLAR_LIMIT_2026,
-  "ca.federal.rrspEarnedIncomeRate": registered.RRSP_EARNED_INCOME_RATE,
-  "ca.federal.tfsaAnnualLimit2026": registered.TFSA_ANNUAL_LIMIT_2026,
-  "ca.federal.fhsaAnnualLimit": registered.FHSA_ANNUAL_LIMIT,
-  "ca.federal.fhsaLifetimeLimit": registered.FHSA_LIFETIME_LIMIT,
-  "ca.federal.hbpWithdrawalLimit": registered.HBP_WITHDRAWAL_LIMIT,
-  "ca.bc.pttSchedule": ptt.BC_PTT_SCHEDULE,
-  "ca.bc.pttResidentialSurchargeAbove3m": ptt.BC_PTT_RESIDENTIAL_SURCHARGE_ABOVE_3M,
-  "ca.bc.pttResidentialSurchargeThreshold": ptt.BC_PTT_RESIDENTIAL_SURCHARGE_THRESHOLD,
-  "ca.bc.pttFtbFullExemptionCeiling": ptt.BC_PTT_FTB_FULL_EXEMPTION_CEILING,
-  "ca.bc.pttFtbPhaseOutCeiling": ptt.BC_PTT_FTB_PHASE_OUT_CEILING,
-  "ca.bc.pttNewBuildFullExemptionCeiling": ptt.BC_PTT_NEW_BUILD_FULL_EXEMPTION_CEILING,
-  "ca.bc.pttNewBuildPhaseOutCeiling": ptt.BC_PTT_NEW_BUILD_PHASE_OUT_CEILING,
-  "ca.mortgage.cmhcPremiumBands": cmhc.CMHC_PREMIUM_BANDS_SOURCE,
-  "ca.mortgage.cmhcInsuranceRequiredBelowDownPaymentRate": cmhc.CMHC_INSURANCE_REQUIRED_BELOW_DOWN_PAYMENT_RATE,
-  "ca.mortgage.cmhcMaxInsurablePrice": cmhc.CMHC_MAX_INSURABLE_PRICE,
-  "ca.mortgage.minDownPaymentRateLowerBand": cmhc.MIN_DOWN_PAYMENT_RATE_LOWER_BAND,
-  "ca.mortgage.minDownPaymentBandThreshold": cmhc.MIN_DOWN_PAYMENT_BAND_THRESHOLD,
-  "ca.mortgage.minDownPaymentRateUpperBand": cmhc.MIN_DOWN_PAYMENT_RATE_UPPER_BAND,
-});
+export function resolve(name: string, asOf: string): number | readonly Tier[] {
+  return resolveFromRegistry(ALL_ENTRIES, name, asOf);
+}
+
+/** The raw entry, including provenance, for inspection and reporting. */
+export function getEntry(name: string): Sourced | undefined {
+  return ALL_ENTRIES[name];
+}
 
 /** Everything still awaiting a human check, for the verification queue report. */
 export function verificationQueue(): { name: string; authority: string; url: string; note?: string }[] {
