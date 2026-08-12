@@ -312,6 +312,6 @@
       "url": "https://www2.gov.bc.ca/gov/content/taxes/property-taxes/property-transfer-tax/exemptions/first-time-home-buyers",
       "retrieved": "2026-08-11"
     },
-    "note": "Primary source read 2026-08-11. NEW \u2014 this constant did not exist and its absence was a defect. The exemption equals the tax payable on the first $500,000, not the full tax. On an $800,000 home the buyer still pays tax on $300,000. Source: 'the purchaser will be exempt from property transfer tax on the first $500,000 of the purchase price.'"
+    "note": "Primary source read 2026-08-11 and confirmed. NEW \u2014 this constant did not exist and its absence was a defect. The exemption equals the tax payable on the first $500,000, not the full tax. On an $800,000 home the buyer still pays tax on $300,000. Source: 'the purchaser will be exempt from property transfer tax on the first $500,000 of the purchase price.'"
   }
 }
