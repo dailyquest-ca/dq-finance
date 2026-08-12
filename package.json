@@ -20,7 +20,8 @@
     "test:ts": "node --experimental-strip-types --test 'src/__tests__/*.test.ts'",
     "test:py": "cd python && python3 -m pytest -q",
     "queue": "node --experimental-strip-types scripts/verification-queue.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "verify": "node --experimental-strip-types scripts/verify.ts"
   },
   "keywords": [
     "canada",
