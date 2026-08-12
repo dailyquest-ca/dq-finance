@@ -67,8 +67,34 @@ describe("conformance (shared with the Python reader)", () => {
     assert.ok(conformance.cases.some((c) => c.expect.tiers));
   });
 
-  test("nothing in the shipped registry is usable yet", () => {
-    const usable = Object.entries(ALL_ENTRIES).filter(([, e]) => isUsable(e, "2026-08-11"));
-    assert.deepEqual(usable.map(([n]) => n), []);
+  // Entries deliberately NOT verified, with the reason. Anything that leaves this
+  // list must have had a primary source actually read. Mirrors UNVERIFIED_BY_DESIGN
+  // in the Python suite.
+  const UNVERIFIED_BY_DESIGN = [
+    // CRA contribution-room page 404'd on 2026-08-11, so the 18% rate was never
+    // read off a primary source. Must not be swept into a bulk verify.
+    "ca.federal.rrspEarnedIncomeRate",
+  ];
+
+  test("exactly the expected entries are unverified", () => {
+    const unverified = Object.entries(ALL_ENTRIES)
+      .filter(([, e]) => e.status !== "verified")
+      .map(([n]) => n)
+      .sort();
+    assert.deepEqual(unverified, [...UNVERIFIED_BY_DESIGN].sort());
+  });
+
+  test("every verified entry names a verifier, a date, and what the source said", () => {
+    for (const [name, e] of Object.entries(ALL_ENTRIES)) {
+      if (e.status !== "verified") continue;
+      assert.ok(e.verifiedBy?.trim(), `${name} verified with no verifier named`);
+      assert.ok(e.verifiedOn, `${name} verified with no date`);
+      assert.ok(e.note, `${name} verified with no note recording what the source said`);
+    }
+  });
+
+  test("verified entries are actually usable in window", () => {
+    const usable = Object.entries(ALL_ENTRIES).filter(([, e]) => isUsable(e, "2026-08-12"));
+    assert.ok(usable.length >= 18, `expected most entries usable, got ${usable.length}`);
   });
 });

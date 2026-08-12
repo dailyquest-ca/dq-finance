@@ -33,12 +33,20 @@ The no-assumed-values doctrine used to be a paragraph someone had to remember. H
 
 ## Current state
 
-**Zero of 17 entries are verified.** Nothing in this library can reach a calculation yet.
+**19 of 20 entries verified** against their primary sources on 2026-08-11.
 
-That is deliberate. The values present are *candidates* drafted from existing Daily Quest project documentation and from secondary reporting — none has been read off a government page by a human. Publishing them as facts would be the exact failure this library exists to prevent.
+`verifiedBy` records how: a machine performed the source read under the owner's explicit delegation. That is not the same as a person opening each page, and the field says so rather than implying otherwise. If a CPA review is later required for a given number, re-verify and update the field — the value of this design is that the record is honest about its own provenance.
+
+**Two entries were wrong** and were corrected during that pass:
+
+- **CMHC maximum insurable price** — was $1,000,000, is $1,500,000. Stale by a policy change. This does not shift a number, it denies eligibility to a whole band of purchases
+- **BC first-time buyers' exemption** — was modelled as a full exemption up to $835,000. In fact $835,000 is the eligibility *ceiling*, and the exemption *amount* is capped at the tax on the first $500,000. The old constant's name encoded the misunderstanding. Renamed, and `pttFtbExemptionCapValue` added because it did not exist. Without it a model exempts the whole tax on an $800,000 home when the buyer still owes tax on $300,000
+
+**One entry remains unverified by design:** `ca.federal.rrspEarnedIncomeRate`. The CRA contribution-room page returned 404, so the 18% rate was never read off a primary source. It is excluded from bulk verification and must be named explicitly.
 
 ```bash
-npm run queue      # what needs a human, grouped by source
+npm run queue      # what still needs a human, grouped by source
+npm run verify -- <name> --by "<who>"   # record a verification
 npm test           # both languages
 npm run test:ts    # 35 tests
 npm run test:py    # 44 tests

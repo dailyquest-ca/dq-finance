@@ -5,14 +5,16 @@
     "jurisdiction": "CA",
     "effectiveFrom": "2026-01-01",
     "effectiveTo": "2026-12-31",
-    "status": "unverified",
+    "status": "verified",
     "source": {
       "authority": "CRA",
-      "citation": "MP, DB, RRSP, DPSP, ALDA, TFSA limits and the YMPE \u2014 RRSP dollar limit row, 2026",
+      "citation": "MP, DB, RRSP, DPSP, ALDA, TFSA limits and the YMPE — RRSP dollar limit row, 2026",
       "url": "https://www.canada.ca/en/revenue-agency/services/tax/registered-plans-administrators/pspa/mp-rrsp-dpsp-tfsa-limits-ympe.html",
       "retrieved": "2026-08-11"
     },
-    "note": "Primary source read 2026-08-11 and confirmed. CRA limits table: 2026 $33,810 (2025 $32,490)."
+    "note": "Primary source read 2026-08-11 and confirmed. CRA limits table: 2026 $33,810 (2025 $32,490).",
+    "verifiedBy": "claude (source-read 2026-08-11), delegated by zak",
+    "verifiedOn": "2026-08-12"
   },
   "ca.federal.rrspEarnedIncomeRate": {
     "value": 0.18,
@@ -23,11 +25,11 @@
     "status": "unverified",
     "source": {
       "authority": "CRA",
-      "citation": "RRSP contribution room \u2014 18% of prior year earned income, less pension adjustment",
+      "citation": "RRSP contribution room — 18% of prior year earned income, less pension adjustment",
       "url": "https://www.canada.ca/en/revenue-agency/services/tax/registered-plans-administrators/pspa/mp-rrsp-dpsp-tfsa-limits-ympe.html",
       "retrieved": "2026-08-11"
     },
-    "note": "NOT CONFIRMED. The CRA contribution-room page returned 404 on 2026-08-11, so the 18% rate was not read off a primary source. Room is 18% of prior-year EARNED income (a defined subset \u2014 employment, self-employment, rental; investment income does not qualify) OR the annual dollar limit, whichever is less, minus the pension adjustment. Find a live CRA page before signing off."
+    "note": "NOT CONFIRMED. The CRA contribution-room page returned 404 on 2026-08-11, so the 18% rate was not read off a primary source. Room is 18% of prior-year EARNED income (a defined subset — employment, self-employment, rental; investment income does not qualify) OR the annual dollar limit, whichever is less, minus the pension adjustment. Find a live CRA page before signing off."
   },
   "ca.federal.tfsaAnnualLimit2026": {
     "value": 700000,
@@ -35,14 +37,16 @@
     "jurisdiction": "CA",
     "effectiveFrom": "2026-01-01",
     "effectiveTo": "2026-12-31",
-    "status": "unverified",
+    "status": "verified",
     "source": {
       "authority": "CRA",
-      "citation": "TFSA contribution room \u2014 annual limit, 2026",
+      "citation": "TFSA contribution room — annual limit, 2026",
       "url": "https://www.canada.ca/en/revenue-agency/services/tax/registered-plans-administrators/pspa/mp-rrsp-dpsp-tfsa-limits-ympe.html",
       "retrieved": "2026-08-11"
     },
-    "note": "Primary source read 2026-08-11 and confirmed. CRA limits table: $7,000 for both 2026 and 2025. Indexed in $500 increments so it does not move every year. Withdrawals restore room on 1 January of the FOLLOWING year, not immediately."
+    "note": "Primary source read 2026-08-11 and confirmed. CRA limits table: $7,000 for both 2026 and 2025. Indexed in $500 increments so it does not move every year. Withdrawals restore room on 1 January of the FOLLOWING year, not immediately.",
+    "verifiedBy": "claude (source-read 2026-08-11), delegated by zak",
+    "verifiedOn": "2026-08-12"
   },
   "ca.federal.fhsaAnnualLimit": {
     "value": 800000,
@@ -50,14 +54,16 @@
     "jurisdiction": "CA",
     "effectiveFrom": "2026-01-01",
     "effectiveTo": null,
-    "status": "unverified",
+    "status": "verified",
     "source": {
       "authority": "CRA",
-      "citation": "First Home Savings Account \u2014 annual participation room",
+      "citation": "First Home Savings Account — annual participation room",
       "url": "https://www.canada.ca/en/revenue-agency/services/tax/registered-plans-administrators/pspa/mp-rrsp-dpsp-tfsa-limits-ympe.html",
       "retrieved": "2026-08-11"
     },
-    "note": "Primary source read 2026-08-11 and confirmed. $8,000 participation room in the first year and each year after. Unused room carries forward to a maximum of $8,000 into the following year \u2014 the carry-forward is capped, not unlimited."
+    "note": "Primary source read 2026-08-11 and confirmed. $8,000 participation room in the first year and each year after. Unused room carries forward to a maximum of $8,000 into the following year — the carry-forward is capped, not unlimited.",
+    "verifiedBy": "claude (source-read 2026-08-11), delegated by zak",
+    "verifiedOn": "2026-08-12"
   },
   "ca.federal.fhsaLifetimeLimit": {
     "value": 4000000,
@@ -65,14 +71,16 @@
     "jurisdiction": "CA",
     "effectiveFrom": "2026-01-01",
     "effectiveTo": null,
-    "status": "unverified",
+    "status": "verified",
     "source": {
       "authority": "CRA",
-      "citation": "First Home Savings Account \u2014 lifetime contribution limit",
+      "citation": "First Home Savings Account — lifetime contribution limit",
       "url": "https://www.canada.ca/en/revenue-agency/services/tax/registered-plans-administrators/pspa/mp-rrsp-dpsp-tfsa-limits-ympe.html",
       "retrieved": "2026-08-11"
     },
-    "note": "Primary source read 2026-08-11 and confirmed. $40,000 lifetime maximum, across all FHSAs held."
+    "note": "Primary source read 2026-08-11 and confirmed. $40,000 lifetime maximum, across all FHSAs held.",
+    "verifiedBy": "claude (source-read 2026-08-11), delegated by zak",
+    "verifiedOn": "2026-08-12"
   },
   "ca.federal.hbpWithdrawalLimit": {
     "value": 6000000,
@@ -80,14 +88,16 @@
     "jurisdiction": "CA",
     "effectiveFrom": "2026-01-01",
     "effectiveTo": null,
-    "status": "unverified",
+    "status": "verified",
     "source": {
       "authority": "CRA",
-      "citation": "Home Buyers' Plan \u2014 maximum withdrawal amount",
+      "citation": "Home Buyers' Plan — maximum withdrawal amount",
       "url": "https://www.canada.ca/en/revenue-agency/services/tax/registered-plans-administrators/pspa/mp-rrsp-dpsp-tfsa-limits-ympe.html",
       "retrieved": "2026-08-11"
     },
-    "note": "Primary source read 2026-08-11 and confirmed. CRA states 'Currently, the HBP withdrawal limit is $60,000.' Repayment schedule and the grace period before repayments begin are separate rules and are not yet captured here."
+    "note": "Primary source read 2026-08-11 and confirmed. CRA states 'Currently, the HBP withdrawal limit is $60,000.' Repayment schedule and the grace period before repayments begin are separate rules and are not yet captured here.",
+    "verifiedBy": "claude (source-read 2026-08-11), delegated by zak",
+    "verifiedOn": "2026-08-12"
   },
   "ca.bc.pttSchedule": {
     "tiers": [
@@ -110,14 +120,16 @@
     "jurisdiction": "CA-BC",
     "effectiveFrom": "2026-01-01",
     "effectiveTo": null,
-    "status": "unverified",
+    "status": "verified",
     "source": {
       "authority": "BC Ministry of Finance",
-      "citation": "Property transfer tax \u2014 general property transfer tax rate",
+      "citation": "Property transfer tax — general property transfer tax rate",
       "url": "https://www2.gov.bc.ca/gov/content/taxes/property-taxes/property-transfer-tax",
       "retrieved": "2026-08-11"
     },
-    "note": "Primary source read 2026-08-11 and confirmed. 1% up to and including $200,000; 2% above $200,000 up to and including $2,000,000; 3% above $2,000,000. See also the residential surcharge above $3,000,000."
+    "note": "Primary source read 2026-08-11 and confirmed. 1% up to and including $200,000; 2% above $200,000 up to and including $2,000,000; 3% above $2,000,000. See also the residential surcharge above $3,000,000.",
+    "verifiedBy": "claude (source-read 2026-08-11), delegated by zak",
+    "verifiedOn": "2026-08-12"
   },
   "ca.bc.pttResidentialSurchargeAbove3m": {
     "value": 0.02,
@@ -125,14 +137,16 @@
     "jurisdiction": "CA-BC",
     "effectiveFrom": "2026-01-01",
     "effectiveTo": null,
-    "status": "unverified",
+    "status": "verified",
     "source": {
       "authority": "BC Ministry of Finance",
-      "citation": "Property transfer tax \u2014 further 2% tax on residential property worth over $3,000,000",
+      "citation": "Property transfer tax — further 2% tax on residential property worth over $3,000,000",
       "url": "https://www2.gov.bc.ca/gov/content/taxes/property-taxes/property-transfer-tax",
       "retrieved": "2026-08-11"
     },
-    "note": "Primary source read 2026-08-11 and confirmed. Source: 'If the property has residential property worth over $3,000,000, a further 2% tax will be applied to the residential property value greater than $3,000,000.' Mixed-class property: applies to the residential portion only. This band was ABSENT from the project docs."
+    "note": "Primary source read 2026-08-11 and confirmed. Source: 'If the property has residential property worth over $3,000,000, a further 2% tax will be applied to the residential property value greater than $3,000,000.' Mixed-class property: applies to the residential portion only. This band was ABSENT from the project docs.",
+    "verifiedBy": "claude (source-read 2026-08-11), delegated by zak",
+    "verifiedOn": "2026-08-12"
   },
   "ca.bc.pttResidentialSurchargeThreshold": {
     "value": 300000000,
@@ -140,14 +154,16 @@
     "jurisdiction": "CA-BC",
     "effectiveFrom": "2026-01-01",
     "effectiveTo": null,
-    "status": "unverified",
+    "status": "verified",
     "source": {
       "authority": "BC Ministry of Finance",
-      "citation": "Property transfer tax \u2014 residential value threshold for the further 2% tax",
+      "citation": "Property transfer tax — residential value threshold for the further 2% tax",
       "url": "https://www2.gov.bc.ca/gov/content/taxes/property-taxes/property-transfer-tax",
       "retrieved": "2026-08-11"
     },
-    "note": "Primary source read 2026-08-11 and confirmed. $3,000,000."
+    "note": "Primary source read 2026-08-11 and confirmed. $3,000,000.",
+    "verifiedBy": "claude (source-read 2026-08-11), delegated by zak",
+    "verifiedOn": "2026-08-12"
   },
   "ca.bc.pttFtbPhaseOutCeiling": {
     "value": 86000000,
@@ -155,14 +171,16 @@
     "jurisdiction": "CA-BC",
     "effectiveFrom": "2026-01-01",
     "effectiveTo": null,
-    "status": "unverified",
+    "status": "verified",
     "source": {
       "authority": "BC Ministry of Finance",
-      "citation": "First Time Home Buyers' Program \u2014 partial exemption upper bound",
+      "citation": "First Time Home Buyers' Program — partial exemption upper bound",
       "url": "https://www2.gov.bc.ca/gov/content/taxes/property-taxes/property-transfer-tax/exemptions/first-time-home-buyers/current-amount",
       "retrieved": "2026-08-11"
     },
-    "note": "Primary source read 2026-08-11 and confirmed. Partial exemption applies where fair market value is more than $835,000 but less than $860,000; the exemption is eliminated at $860,000."
+    "note": "Primary source read 2026-08-11 and confirmed. Partial exemption applies where fair market value is more than $835,000 but less than $860,000; the exemption is eliminated at $860,000.",
+    "verifiedBy": "claude (source-read 2026-08-11), delegated by zak",
+    "verifiedOn": "2026-08-12"
   },
   "ca.bc.pttNewBuildFullExemptionCeiling": {
     "value": 110000000,
@@ -170,14 +188,16 @@
     "jurisdiction": "CA-BC",
     "effectiveFrom": "2026-01-01",
     "effectiveTo": null,
-    "status": "unverified",
+    "status": "verified",
     "source": {
       "authority": "BC Ministry of Finance",
-      "citation": "Newly Built Home Exemption \u2014 full exemption threshold",
+      "citation": "Newly Built Home Exemption — full exemption threshold",
       "url": "https://www2.gov.bc.ca/gov/content/taxes/property-taxes/property-transfer-tax",
       "retrieved": "2026-08-11"
     },
-    "note": "Primary source read 2026-08-11 and confirmed. 'Effective April 1, 2024, the fair market value threshold for a full exemption for newly built homes is increased from $750,000 to $1,100,000.' Unlike the first-time buyers' program, the source describes no cap on the exemption amount at a lower value."
+    "note": "Primary source read 2026-08-11 and confirmed. 'Effective April 1, 2024, the fair market value threshold for a full exemption for newly built homes is increased from $750,000 to $1,100,000.' Unlike the first-time buyers' program, the source describes no cap on the exemption amount at a lower value.",
+    "verifiedBy": "claude (source-read 2026-08-11), delegated by zak",
+    "verifiedOn": "2026-08-12"
   },
   "ca.bc.pttNewBuildPhaseOutCeiling": {
     "value": 115000000,
@@ -185,14 +205,16 @@
     "jurisdiction": "CA-BC",
     "effectiveFrom": "2026-01-01",
     "effectiveTo": null,
-    "status": "unverified",
+    "status": "verified",
     "source": {
       "authority": "BC Ministry of Finance",
-      "citation": "Newly Built Home Exemption \u2014 partial exemption upper bound",
+      "citation": "Newly Built Home Exemption — partial exemption upper bound",
       "url": "https://www2.gov.bc.ca/gov/content/taxes/property-taxes/property-transfer-tax",
       "retrieved": "2026-08-11"
     },
-    "note": "Primary source read 2026-08-11 and confirmed. Phase-out range is $50,000 above the threshold, eliminated completely at $1,150,000."
+    "note": "Primary source read 2026-08-11 and confirmed. Phase-out range is $50,000 above the threshold, eliminated completely at $1,150,000.",
+    "verifiedBy": "claude (source-read 2026-08-11), delegated by zak",
+    "verifiedOn": "2026-08-12"
   },
   "ca.mortgage.cmhcPremiumBands": {
     "value": 7,
@@ -200,14 +222,16 @@
     "jurisdiction": "CA",
     "effectiveFrom": "2026-01-01",
     "effectiveTo": null,
-    "status": "unverified",
+    "status": "verified",
     "source": {
       "authority": "CMHC",
-      "citation": "Mortgage loan insurance cost \u2014 premium rate by loan-to-value ratio",
+      "citation": "Mortgage loan insurance cost — premium rate by loan-to-value ratio",
       "url": "https://www.cmhc-schl.gc.ca/consumers/home-buying/mortgage-loan-insurance-for-consumers/cmhc-mortgage-loan-insurance-cost",
       "retrieved": "2026-08-11"
     },
-    "note": "Primary source read 2026-08-11 and CORRECTED. Published table, premium on total loan by loan-to-value: up to 65% 0.60%; 65.01-75% 1.70%; 75.01-80% 2.40%; 80.01-85% 2.80%; 85.01-90% 3.10%; 90.01-95% 4.00%; 90.01-95% with a non-traditional down payment 4.50%. Project docs held only three bands expressed as down payment. Premiums in Quebec, Ontario and Saskatchewan attract provincial sales tax \u2014 not modelled."
+    "note": "Primary source read 2026-08-11 and CORRECTED. Published table, premium on total loan by loan-to-value: up to 65% 0.60%; 65.01-75% 1.70%; 75.01-80% 2.40%; 80.01-85% 2.80%; 85.01-90% 3.10%; 90.01-95% 4.00%; 90.01-95% with a non-traditional down payment 4.50%. Project docs held only three bands expressed as down payment. Premiums in Quebec, Ontario and Saskatchewan attract provincial sales tax — not modelled.",
+    "verifiedBy": "claude (source-read 2026-08-11), delegated by zak",
+    "verifiedOn": "2026-08-12"
   },
   "ca.mortgage.cmhcInsuranceRequiredBelowDownPaymentRate": {
     "value": 0.2,
@@ -215,14 +239,16 @@
     "jurisdiction": "CA",
     "effectiveFrom": "2026-01-01",
     "effectiveTo": null,
-    "status": "unverified",
+    "status": "verified",
     "source": {
       "authority": "CMHC",
-      "citation": "Mortgage loan insurance \u2014 when mortgage loan insurance is required",
+      "citation": "Mortgage loan insurance — when mortgage loan insurance is required",
       "url": "https://www.cmhc-schl.gc.ca/consumers/home-buying/mortgage-loan-insurance-for-consumers/cmhc-mortgage-loan-insurance-cost",
       "retrieved": "2026-08-11"
     },
-    "note": "Primary source read 2026-08-11 and confirmed. CMHC eligibility states insurance applies where the down payment is less than 20%; at or above 20% it is not required."
+    "note": "Primary source read 2026-08-11 and confirmed. CMHC eligibility states insurance applies where the down payment is less than 20%; at or above 20% it is not required.",
+    "verifiedBy": "claude (source-read 2026-08-11), delegated by zak",
+    "verifiedOn": "2026-08-12"
   },
   "ca.mortgage.cmhcMaxInsurablePrice": {
     "value": 150000000,
@@ -230,14 +256,16 @@
     "jurisdiction": "CA",
     "effectiveFrom": "2026-01-01",
     "effectiveTo": null,
-    "status": "unverified",
+    "status": "verified",
     "source": {
       "authority": "CMHC",
-      "citation": "Mortgage loan insurance \u2014 maximum purchase price eligibility",
+      "citation": "Mortgage loan insurance — maximum purchase price eligibility",
       "url": "https://www.cmhc-schl.gc.ca/consumers/home-buying/mortgage-loan-insurance-for-consumers/cmhc-mortgage-loan-insurance-cost",
       "retrieved": "2026-08-11"
     },
-    "note": "Primary source read 2026-08-11 and CORRECTED from $1,000,000 to $1,500,000. CMHC eligibility: purchase price / lending value must be below $1,500,000 for homeowner loans. Homes above $1.5M are not eligible and require 20% down. The $1,000,000 in the project docs was stale by a policy change and would have denied eligibility to a whole band of purchases."
+    "note": "Primary source read 2026-08-11 and CORRECTED from $1,000,000 to $1,500,000. CMHC eligibility: purchase price / lending value must be below $1,500,000 for homeowner loans. Homes above $1.5M are not eligible and require 20% down. The $1,000,000 in the project docs was stale by a policy change and would have denied eligibility to a whole band of purchases.",
+    "verifiedBy": "claude (source-read 2026-08-11), delegated by zak",
+    "verifiedOn": "2026-08-12"
   },
   "ca.mortgage.minDownPaymentRateLowerBand": {
     "value": 0.05,
@@ -245,14 +273,16 @@
     "jurisdiction": "CA",
     "effectiveFrom": "2026-01-01",
     "effectiveTo": null,
-    "status": "unverified",
+    "status": "verified",
     "source": {
       "authority": "CMHC",
       "citation": "Minimum down payment requirements",
       "url": "https://www.cmhc-schl.gc.ca/consumers/home-buying/mortgage-loan-insurance-for-consumers/cmhc-mortgage-loan-insurance-cost",
       "retrieved": "2026-08-11"
     },
-    "note": "Primary source read 2026-08-11 and confirmed. 5% minimum for a purchase price of $500,000 or less; above that, 5% on the first $500,000 and 10% on the remainder."
+    "note": "Primary source read 2026-08-11 and confirmed. 5% minimum for a purchase price of $500,000 or less; above that, 5% on the first $500,000 and 10% on the remainder.",
+    "verifiedBy": "claude (source-read 2026-08-11), delegated by zak",
+    "verifiedOn": "2026-08-12"
   },
   "ca.mortgage.minDownPaymentBandThreshold": {
     "value": 50000000,
@@ -260,14 +290,16 @@
     "jurisdiction": "CA",
     "effectiveFrom": "2026-01-01",
     "effectiveTo": null,
-    "status": "unverified",
+    "status": "verified",
     "source": {
       "authority": "CMHC",
-      "citation": "Minimum down payment requirements \u2014 band threshold",
+      "citation": "Minimum down payment requirements — band threshold",
       "url": "https://www.cmhc-schl.gc.ca/consumers/home-buying/mortgage-loan-insurance-for-consumers/cmhc-mortgage-loan-insurance-cost",
       "retrieved": "2026-08-11"
     },
-    "note": "Primary source read 2026-08-11 and confirmed. $500,000."
+    "note": "Primary source read 2026-08-11 and confirmed. $500,000.",
+    "verifiedBy": "claude (source-read 2026-08-11), delegated by zak",
+    "verifiedOn": "2026-08-12"
   },
   "ca.mortgage.minDownPaymentRateUpperBand": {
     "value": 0.1,
@@ -275,14 +307,16 @@
     "jurisdiction": "CA",
     "effectiveFrom": "2026-01-01",
     "effectiveTo": null,
-    "status": "unverified",
+    "status": "verified",
     "source": {
       "authority": "CMHC",
-      "citation": "Minimum down payment requirements \u2014 rate above the band threshold",
+      "citation": "Minimum down payment requirements — rate above the band threshold",
       "url": "https://www.cmhc-schl.gc.ca/consumers/home-buying/mortgage-loan-insurance-for-consumers/cmhc-mortgage-loan-insurance-cost",
       "retrieved": "2026-08-11"
     },
-    "note": "Primary source read 2026-08-11 and confirmed. 10% on the portion above $500,000."
+    "note": "Primary source read 2026-08-11 and confirmed. 10% on the portion above $500,000.",
+    "verifiedBy": "claude (source-read 2026-08-11), delegated by zak",
+    "verifiedOn": "2026-08-12"
   },
   "ca.bc.pttFtbEligibilityCeiling": {
     "value": 83500000,
@@ -290,14 +324,16 @@
     "jurisdiction": "CA-BC",
     "effectiveFrom": "2026-01-01",
     "effectiveTo": null,
-    "status": "unverified",
+    "status": "verified",
     "source": {
       "authority": "BC Ministry of Finance",
-      "citation": "First Time Home Buyers' Program \u2014 current exemption amounts, full exemption threshold",
+      "citation": "First Time Home Buyers' Program — current exemption amounts, full exemption threshold",
       "url": "https://www2.gov.bc.ca/gov/content/taxes/property-taxes/property-transfer-tax/exemptions/first-time-home-buyers/current-amount",
       "retrieved": "2026-08-11"
     },
-    "note": "Primary source read 2026-08-11 and RENAMED \u2014 the previous name was wrong, not just the framing. $835,000 is the fair-market-value CEILING for eligibility, effective 1 April 2024. It is NOT the value up to which tax is fully exempt: the exemption AMOUNT is capped at the tax on the first $500,000. See ca.bc.pttFtbExemptionCapValue. Modelling $835,000 as a full exemption overstates the benefit on any home above $500,000."
+    "note": "Primary source read 2026-08-11 and RENAMED — the previous name was wrong, not just the framing. $835,000 is the fair-market-value CEILING for eligibility, effective 1 April 2024. It is NOT the value up to which tax is fully exempt: the exemption AMOUNT is capped at the tax on the first $500,000. See ca.bc.pttFtbExemptionCapValue. Modelling $835,000 as a full exemption overstates the benefit on any home above $500,000.",
+    "verifiedBy": "claude (source-read 2026-08-11), delegated by zak",
+    "verifiedOn": "2026-08-12"
   },
   "ca.bc.pttFtbExemptionCapValue": {
     "value": 50000000,
@@ -305,13 +341,15 @@
     "jurisdiction": "CA-BC",
     "effectiveFrom": "2024-04-01",
     "effectiveTo": null,
-    "status": "unverified",
+    "status": "verified",
     "source": {
       "authority": "BC Ministry of Finance",
-      "citation": "First Time Home Buyers' Programme \u2014 exemption applies to the first $500,000 of purchase price",
+      "citation": "First Time Home Buyers' Programme — exemption applies to the first $500,000 of purchase price",
       "url": "https://www2.gov.bc.ca/gov/content/taxes/property-taxes/property-transfer-tax/exemptions/first-time-home-buyers",
       "retrieved": "2026-08-11"
     },
-    "note": "Primary source read 2026-08-11 and confirmed. NEW \u2014 this constant did not exist and its absence was a defect. The exemption equals the tax payable on the first $500,000, not the full tax. On an $800,000 home the buyer still pays tax on $300,000. Source: 'the purchaser will be exempt from property transfer tax on the first $500,000 of the purchase price.'"
+    "note": "Primary source read 2026-08-11 and confirmed. NEW — this constant did not exist and its absence was a defect. The exemption equals the tax payable on the first $500,000, not the full tax. On an $800,000 home the buyer still pays tax on $300,000. Source: 'the purchaser will be exempt from property transfer tax on the first $500,000 of the purchase price.'",
+    "verifiedBy": "claude (source-read 2026-08-11), delegated by zak",
+    "verifiedOn": "2026-08-12"
   }
 }

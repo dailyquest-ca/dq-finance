@@ -58,9 +58,27 @@ def test_schedules_are_contiguous_and_open_ended() -> None:
             assert tiers[i]["from"] == tiers[i - 1].get("to"), f"{name} has a gap at tier {i}"
 
 
-def test_nothing_is_usable_yet() -> None:
-    """Expected to change as entries are verified. Makes the current state explicit."""
-    usable = [n for n, e in registry.ALL_ENTRIES.items() if registry.is_usable(e, "2026-08-11")]
-    assert usable == [], (
-        "an entry became usable — if intentional, update this test with the verification evidence"
+#: Entries deliberately NOT verified, with the reason. Anything that leaves this
+#: list must have had a primary source actually read.
+UNVERIFIED_BY_DESIGN = {
+    # CRA contribution-room page 404'd on 2026-08-11, so the 18% rate was never
+    # read off a primary source. Must not be swept into a bulk verify.
+    "ca.federal.rrspEarnedIncomeRate",
+}
+
+
+def test_exactly_the_expected_entries_are_unverified() -> None:
+    """Forces any change in verification state to be acknowledged, in both languages."""
+    unverified = {n for n, e in registry.ALL_ENTRIES.items() if e.get("status") != "verified"}
+    assert unverified == UNVERIFIED_BY_DESIGN, (
+        "verification state changed — if intentional, update UNVERIFIED_BY_DESIGN with the reason"
     )
+
+
+def test_every_verified_entry_names_a_verifier_and_a_date() -> None:
+    for name, entry in registry.ALL_ENTRIES.items():
+        if entry.get("status") != "verified":
+            continue
+        assert str(entry.get("verifiedBy", "")).strip(), f"{name} verified with no verifier named"
+        assert entry.get("verifiedOn"), f"{name} verified with no date"
+        assert entry.get("note"), f"{name} verified with no note recording what the source said"

@@ -7,7 +7,7 @@
     "one language's gate logic that is not mirrored in the other fails here, in",
     "both test suites, immediately.",
     "",
-    "'registry: constants' cases run against data/constants.json — the real data.",
+    "'registry: constants' cases run against data/constants.json \u2014 the real data.",
     "'registry: fixtures' cases run against the synthetic entries below, which exist",
     "because every real entry is currently unverified and so cannot exercise the",
     "happy path."
@@ -61,9 +61,21 @@
     },
     "fixture.verifiedSchedule": {
       "tiers": [
-        { "from": 0, "to": 20000000, "rate": 0.01 },
-        { "from": 20000000, "to": 200000000, "rate": 0.02 },
-        { "from": 200000000, "to": null, "rate": 0.03 }
+        {
+          "from": 0,
+          "to": 20000000,
+          "rate": 0.01
+        },
+        {
+          "from": 20000000,
+          "to": 200000000,
+          "rate": 0.02
+        },
+        {
+          "from": 200000000,
+          "to": null,
+          "rate": 0.03
+        }
       ],
       "jurisdiction": "CA-BC",
       "effectiveFrom": "2026-01-01",
@@ -142,8 +154,16 @@
     },
     "fixture.scheduleWithGap": {
       "tiers": [
-        { "from": 0, "to": 20000000, "rate": 0.01 },
-        { "from": 30000000, "to": null, "rate": 0.02 }
+        {
+          "from": 0,
+          "to": 20000000,
+          "rate": 0.01
+        },
+        {
+          "from": 30000000,
+          "to": null,
+          "rate": 0.02
+        }
       ],
       "jurisdiction": "CA-BC",
       "effectiveFrom": "2026-01-01",
@@ -165,112 +185,194 @@
       "registry": "fixtures",
       "name": "fixture.verifiedValue",
       "asOf": "2026-06-30",
-      "expect": { "value": 700000 }
+      "expect": {
+        "value": 700000
+      }
     },
     {
       "why": "an open-ended value resolves far in the future",
       "registry": "fixtures",
       "name": "fixture.verifiedOpenEnded",
       "asOf": "2099-01-01",
-      "expect": { "value": 0.05 }
+      "expect": {
+        "value": 0.05
+      }
     },
     {
       "why": "an open-ended value still refuses dates before it started",
       "registry": "fixtures",
       "name": "fixture.verifiedOpenEnded",
       "asOf": "2020-01-01",
-      "expect": { "error": "ConstantOutOfEffectError" }
+      "expect": {
+        "error": "ConstantOutOfEffectError"
+      }
     },
     {
       "why": "a verified schedule resolves to its tiers",
       "registry": "fixtures",
       "name": "fixture.verifiedSchedule",
       "asOf": "2026-06-30",
-      "expect": { "tiers": [[0, 20000000, 0.01], [20000000, 200000000, 0.02], [200000000, null, 0.03]] }
+      "expect": {
+        "tiers": [
+          [
+            0,
+            20000000,
+            0.01
+          ],
+          [
+            20000000,
+            200000000,
+            0.02
+          ],
+          [
+            200000000,
+            null,
+            0.03
+          ]
+        ]
+      }
     },
     {
       "why": "an unverified value is refused, never returned",
       "registry": "fixtures",
       "name": "fixture.unverified",
       "asOf": "2026-06-30",
-      "expect": { "error": "UnverifiedConstantError" }
+      "expect": {
+        "error": "UnverifiedConstantError"
+      }
     },
     {
       "why": "before the window opens",
       "registry": "fixtures",
       "name": "fixture.verifiedValue",
       "asOf": "2025-12-31",
-      "expect": { "error": "ConstantOutOfEffectError" }
+      "expect": {
+        "error": "ConstantOutOfEffectError"
+      }
     },
     {
-      "why": "after the window closes — the tax-year rollover this library exists to catch",
+      "why": "after the window closes \u2014 the tax-year rollover this library exists to catch",
       "registry": "fixtures",
       "name": "fixture.verifiedValue",
       "asOf": "2027-03-15",
-      "expect": { "error": "ConstantOutOfEffectError" }
+      "expect": {
+        "error": "ConstantOutOfEffectError"
+      }
     },
     {
       "why": "a malformed as-of date is rejected, so 'today' is never assumed",
       "registry": "fixtures",
       "name": "fixture.verifiedValue",
       "asOf": "not-a-date",
-      "expect": { "error": "MalformedConstantError" }
+      "expect": {
+        "error": "MalformedConstantError"
+      }
     },
     {
       "why": "an unknown name is an error, not undefined",
       "registry": "fixtures",
       "name": "fixture.doesNotExist",
       "asOf": "2026-06-30",
-      "expect": { "error": "UnknownConstantError" }
+      "expect": {
+        "error": "UnknownConstantError"
+      }
     },
     {
       "why": "money stored as a float is a defect",
       "registry": "fixtures",
       "name": "fixture.floatMoney",
       "asOf": "2026-06-30",
-      "expect": { "error": "MalformedConstantError" }
+      "expect": {
+        "error": "MalformedConstantError"
+      }
     },
     {
       "why": "6.25 where 0.0625 belongs is caught",
       "registry": "fixtures",
       "name": "fixture.percentAsRate",
       "asOf": "2026-06-30",
-      "expect": { "error": "MalformedConstantError" }
+      "expect": {
+        "error": "MalformedConstantError"
+      }
     },
     {
       "why": "verified status with no named verifier is a defect",
       "registry": "fixtures",
       "name": "fixture.verifiedNoVerifier",
       "asOf": "2026-06-30",
-      "expect": { "error": "MalformedConstantError" }
+      "expect": {
+        "error": "MalformedConstantError"
+      }
     },
     {
       "why": "a non-https source is a defect",
       "registry": "fixtures",
       "name": "fixture.httpUrl",
       "asOf": "2026-06-30",
-      "expect": { "error": "MalformedConstantError" }
+      "expect": {
+        "error": "MalformedConstantError"
+      }
     },
     {
       "why": "a gap between schedule tiers would silently drop a band",
       "registry": "fixtures",
       "name": "fixture.scheduleWithGap",
       "asOf": "2026-06-30",
-      "expect": { "error": "MalformedConstantError" }
+      "expect": {
+        "error": "MalformedConstantError"
+      }
     },
     {
-      "why": "real data: nothing is verified yet, so nothing resolves",
+      "why": "real data: a verified value now resolves",
       "registry": "constants",
       "name": "ca.federal.tfsaAnnualLimit2026",
       "asOf": "2026-06-30",
-      "expect": { "error": "UnverifiedConstantError" }
+      "expect": {
+        "value": 700000
+      }
     },
     {
-      "why": "real data: the BC schedule is also gated",
+      "why": "real data: a verified schedule resolves to its tiers",
       "registry": "constants",
       "name": "ca.bc.pttSchedule",
       "asOf": "2026-06-30",
-      "expect": { "error": "UnverifiedConstantError" }
+      "expect": {
+        "tiers": [
+          [
+            0,
+            20000000,
+            0.01
+          ],
+          [
+            20000000,
+            200000000,
+            0.02
+          ],
+          [
+            200000000,
+            null,
+            0.03
+          ]
+        ]
+      }
+    },
+    {
+      "why": "real data: the gate still holds \u2014 an entry with no source read is refused",
+      "registry": "constants",
+      "name": "ca.federal.rrspEarnedIncomeRate",
+      "asOf": "2026-06-30",
+      "expect": {
+        "error": "UnverifiedConstantError"
+      }
+    },
+    {
+      "why": "real data: a verified 2026 value is still refused for a 2027 date",
+      "registry": "constants",
+      "name": "ca.federal.tfsaAnnualLimit2026",
+      "asOf": "2027-03-15",
+      "expect": {
+        "error": "ConstantOutOfEffectError"
+      }
     }
   ]
 }
